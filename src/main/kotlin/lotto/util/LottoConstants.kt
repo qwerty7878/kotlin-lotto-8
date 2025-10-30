@@ -10,4 +10,6 @@ object LottoConstants {
 
     const val TICKET_PRICE = 1000
     const val ZERO = 0
+
+    const val BUYING_TICKET_MESSAGE = "개를 구매했습니다."
 }
