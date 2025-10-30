@@ -1,17 +1,28 @@
 package lotto.model
 
 import camp.nextstep.edu.missionutils.Randoms
+import lotto.util.LottoConstants.LOTTO_END_NUMBER
+import lotto.util.LottoConstants.LOTTO_LENGTH
+import lotto.util.LottoConstants.LOTTO_START_NUMBER
+import lotto.util.LottoValidator.validateLength
+import lotto.util.LottoValidator.validateNumberRange
 
 class Lotto(private val numbers: List<Int>) {
     init {
-        require(numbers.size == 6) { "[ERROR] 로또 번호는 6개여야 합니다." }
+        validateLength(numbers.toSet())
+        validateNumberRange(numbers)
     }
+
     fun getNumbers(): List<Int> = numbers.sorted()
 }
 
 class LottoMachine {
-    fun generateLotto(): Lotto {
-        val numbers = Randoms.pickUniqueNumbersInRange(1, 45, 6)
+    private fun generateLotto(): Lotto {
+        val numbers = Randoms.pickUniqueNumbersInRange(LOTTO_START_NUMBER, LOTTO_END_NUMBER, LOTTO_LENGTH)
         return Lotto(numbers)
+    }
+
+    fun generateLottos(ticket: Int): List<Lotto> {
+        return List(ticket) { generateLotto() }
     }
 }
