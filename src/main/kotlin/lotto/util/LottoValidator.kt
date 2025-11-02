@@ -1,6 +1,7 @@
 package lotto.util
 
 import lotto.util.LottoConstants.DEFAULT_ERROR_MESSAGE
+import lotto.util.LottoConstants.DUPLICATE_ERROR_MESSAGE
 import lotto.util.LottoConstants.EMPTY_ERROR_MESSAGE
 import lotto.util.LottoConstants.LENGTH_ERROR_MESSAGE
 import lotto.util.LottoConstants.LOTTO_END_NUMBER
@@ -34,7 +35,16 @@ object LottoValidator {
         require(numbers.size == LOTTO_LENGTH) { LENGTH_ERROR_MESSAGE }
     }
 
-    fun validateNumberRange(numbers: List<Int>) {
+    fun validateNumbersRange(numbers: List<Int>) {
         require(numbers.all { it in LOTTO_START_NUMBER..LOTTO_END_NUMBER }) { NUMBER_RANGE_ERROR_MESSAGE }
     }
+
+    fun validateNumberRange(numbers: Int) {
+        require(numbers in LOTTO_START_NUMBER..LOTTO_END_NUMBER) { NUMBER_RANGE_ERROR_MESSAGE }
+    }
+
+    fun validateDuplicate(number: Int, winningNumbers: Set<Int>) {
+        require(number !in winningNumbers) { DUPLICATE_ERROR_MESSAGE }
+    }
+
 }

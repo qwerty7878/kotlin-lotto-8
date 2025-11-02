@@ -2,6 +2,8 @@ package lotto.util
 
 object LottoConstants {
     const val PURCHASE_LOTTO_MESSAGE = "구입금액을 입력해 주세요."
+    const val WINNING_NUMBER_MESSAGE = "당첨 번호를 입력해 주세요."
+    const val BONUS_NUMBER_MESSAGE = "보너스 번호를 입력해 주세요."
 
     const val EMPTY_ERROR_MESSAGE = "[ERROR] Null 값을 입력하였습니다. 다시 입력해주세요."
     const val DEFAULT_ERROR_MESSAGE = "[ERROR] 사용자가 잘못된 값을 입력하였습니다. 다시 입력해주세요."
@@ -9,7 +11,7 @@ object LottoConstants {
     const val POSITIVE_ERROR_MESSAGE = "[ERROR] 양수가 아닙니다. 다시 입력해주세요."
     const val LENGTH_ERROR_MESSAGE = "[ERROR] 로또 번호는 6개여야 합니다."
     const val NUMBER_RANGE_ERROR_MESSAGE = "[ERROR] 로또 번호는 1부터 45 사이의 수여야 합니다."
-    const val SEPARATOR_ERROR_MESSAGE = "[ERROR] 구분자가 아닌 잘못된 값을 입력하였습니다. 다시 입력해주세요,"
+    const val DUPLICATE_ERROR_MESSAGE = "[ERROR] 당첨번호와 중복됩니다. 다시 입력해주세요."
 
     const val SEPARATOR_NUMBERS = ","
 

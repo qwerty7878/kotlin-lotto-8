@@ -43,4 +43,28 @@ class LottoNumberParserTest {
         assertThrows<IllegalArgumentException> { lottoNumberParser.parseWinningNumbers("@,1,2,3,4") }
     }
 
+    @Test
+    fun `보너스 번호가 널값인 경우`() {
+        assertThrows<IllegalArgumentException> { lottoNumberParser.parseBonusNumber("", setOf(1,2,3,4,5,6)) }
+    }
+
+    @Test
+    fun `보너스 번호가 음수인 경우`() {
+        assertThrows<IllegalArgumentException> { lottoNumberParser.parseBonusNumber("-1", setOf(1,2,3,4,5,6)) }
+    }
+
+    @Test
+    fun `보너스 번호가 범위를 초과 한 경우`() {
+        assertThrows<IllegalArgumentException> { lottoNumberParser.parseBonusNumber("-46", setOf(1,2,3,4,5,6)) }
+    }
+
+    @Test
+    fun `보너스 번호가 중복인 경우`() {
+        assertThrows<IllegalArgumentException> { lottoNumberParser.parseBonusNumber("1", setOf(1,2,3,4,5,6)) }
+    }
+
+    @Test
+    fun `보너스 번호가 정상인 경우`() {
+        assertEquals(10, lottoNumberParser.parseBonusNumber("10", setOf(1,2,3,4,5,6)))
+    }
 }
