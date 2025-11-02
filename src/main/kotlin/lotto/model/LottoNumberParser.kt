@@ -6,8 +6,8 @@ import lotto.util.LottoValidator.validateEmpty
 import lotto.util.LottoValidator.validateLength
 import lotto.util.LottoValidator.validateNumberRange
 
-class Numbers {
-    fun inputWinningNumbers(input: String): List<Int> {
+class LottoNumberParser {
+    fun parseWinningNumbers(input: String): List<Int> {
         validateEmpty(input)
         val splitNumbers = splitNumber(input)
         val numbers = parseToIntList(splitNumbers)
