@@ -9,6 +9,9 @@ object LottoConstants {
     const val POSITIVE_ERROR_MESSAGE = "[ERROR] 양수가 아닙니다. 다시 입력해주세요."
     const val LENGTH_ERROR_MESSAGE = "[ERROR] 로또 번호는 6개여야 합니다."
     const val NUMBER_RANGE_ERROR_MESSAGE = "[ERROR] 로또 번호는 1부터 45 사이의 수여야 합니다."
+    const val SEPARATOR_ERROR_MESSAGE = "[ERROR] 구분자가 아닌 잘못된 값을 입력하였습니다. 다시 입력해주세요,"
+
+    const val SEPARATOR_NUMBERS = ","
 
     const val TICKET_PRICE = 1000
     const val ZERO = 0
