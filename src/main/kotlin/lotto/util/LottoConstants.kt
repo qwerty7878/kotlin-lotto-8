@@ -13,6 +13,9 @@ object LottoConstants {
     const val NUMBER_RANGE_ERROR_MESSAGE = "[ERROR] 로또 번호는 1부터 45 사이의 수여야 합니다."
     const val DUPLICATE_ERROR_MESSAGE = "[ERROR] 당첨번호와 중복됩니다. 다시 입력해주세요."
 
+    const val WINNING_STATISTICS = "당첨 통계"
+    const val DIVIDE_BAR = "---"
+
     const val SEPARATOR_NUMBERS = ","
 
     const val TICKET_PRICE = 1000
