@@ -6,6 +6,7 @@ import lotto.model.RankResult
 import lotto.util.LottoConstants.BUYING_TICKET_MESSAGE
 import lotto.util.LottoConstants.DIVIDE_BAR
 import lotto.util.LottoConstants.WINNING_STATISTICS
+import java.awt.Stroke
 
 class LottoOutputView {
     fun printTicket(ticket: Int) {
@@ -36,5 +37,11 @@ class LottoOutputView {
         val matchCount = result.getRankCount(rank)
         val prizeFormatted = "%,d".format(rank.prize)
         println("${rank.message}}개 일치 (${prizeFormatted}) - ${matchCount}개")
+    }
+
+    fun printLottoProfitRate(result: RankResult, purchaseAmount: Int) {
+        val profitRate = result.calculateProfitRate(purchaseAmount)
+        val rateFormatted = String.format(".1f", profitRate)
+        println("총 수익률은 ${rateFormatted}%입니다.")
     }
 }

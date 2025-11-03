@@ -18,4 +18,14 @@ class RankResult(private val lottos: List<Lotto>) {
     fun getRankCount(rank: Rank): Int {
         return rankCount.getOrDefault(rank, 0)
     }
+
+    fun getTotalPrize(): Long {
+        return rankCount.entries.sumOf { (rank, count) ->
+            rank.prize * count
+        }
+    }
+
+    fun calculateProfitRate(purchaseAmount: Int): Double {
+        return (getTotalPrize().toDouble() / purchaseAmount) * 100
+    }
 }
