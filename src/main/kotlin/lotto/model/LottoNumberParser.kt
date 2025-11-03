@@ -32,5 +32,6 @@ class LottoNumberParser {
 
     private fun splitNumber(input: String): List<String> {
         return input.split(SEPARATOR_NUMBERS)
+            .map { it.trim() }
     }
 }
