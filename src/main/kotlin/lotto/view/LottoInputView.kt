@@ -7,12 +7,13 @@ import lotto.util.LottoConstants.WINNING_NUMBER_MESSAGE
 
 class LottoInputView {
 
-    fun printMessage(message: String): String {
+    private fun printMessage(message: String): String {
         println(message)
         return Console.readLine()
     }
 
     fun inputWinningNumbers(): String {
+        println()
         return printMessage(WINNING_NUMBER_MESSAGE)
     }
 
@@ -21,6 +22,7 @@ class LottoInputView {
     }
 
     fun inputBonusNumber(): String {
+        println()
         return printMessage(BONUS_NUMBER_MESSAGE)
     }
 }
