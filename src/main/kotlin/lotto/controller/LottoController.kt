@@ -5,6 +5,7 @@ import lotto.model.LottoMachine
 import lotto.model.LottoNumberParser
 import lotto.model.RankResult
 import lotto.model.Ticket
+import lotto.util.LottoConstants.TICKET_PRICE
 import lotto.view.LottoInputView
 import lotto.view.LottoOutputView
 
@@ -34,28 +35,24 @@ class LottoController {
 
         outputView.printResult()
         outputView.printStatic(result)
-        outputView.printLottoProfitRate(result, ticketCount * 1000)
+        outputView.printLottoProfitRate(result, ticketCount * TICKET_PRICE)
     }
 
     private fun gerBonusNumber(winningNumbers: Set<Int>): Int {
-        while (true) {
-            try {
-                val input = inputView.inputBonusNumber()
-                return parser.parseBonusNumber(input, winningNumbers)
-            } catch (e: IllegalArgumentException) {
-                println(e.message)
-            }
+        while (true) try {
+            val input = inputView.inputBonusNumber()
+            return parser.parseBonusNumber(input, winningNumbers)
+        } catch (e: IllegalArgumentException) {
+            println(e.message)
         }
     }
 
     private fun getWinningNumbers(): Set<Int> {
-        while (true) {
-            try {
-                val input = inputView.inputWinningNumbers()
-                return parser.parseWinningNumbers(input).toSet()
-            } catch (e: IllegalArgumentException) {
-                println(e.message)
-            }
+        while (true) try {
+            val input = inputView.inputWinningNumbers()
+            return parser.parseWinningNumbers(input).toSet()
+        } catch (e: IllegalArgumentException) {
+            println(e.message)
         }
     }
 
@@ -67,13 +64,11 @@ class LottoController {
     }
 
     private fun getPurchaseAmount(): Int {
-        while (true) {
-            try {
-                val input = inputView.inputPurchaseAmount()
-                return ticket.purchaseTicket(input)
-            }catch(e: IllegalArgumentException){
-                println(e.message)
-            }
+        while (true) try {
+            val input = inputView.inputPurchaseAmount()
+            return ticket.purchaseTicket(input)
+        } catch (e: IllegalArgumentException) {
+            println(e.message)
         }
     }
 }
